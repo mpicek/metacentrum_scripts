@@ -2,11 +2,7 @@
 
 set -ueo pipefail
 
-DATADIR=/storage/budejovice1/home/$(whoami)
+cd labs/05
+python3 cags_classification.py --epochs=2 --epochs2=2 --threads=8
 
-cp -r $DATADIR/npfl114-solutions $SCRATCHDIR  # the repository has to be ready
-
-cd npfl11-solutions/labs/03
-python3 uppercase.py
-
-cp uppercase_test.txt $DATADIR
+cp cifar_competition_test.txt $DATADIR
