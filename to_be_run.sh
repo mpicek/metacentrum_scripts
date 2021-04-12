@@ -2,8 +2,11 @@
 
 set -ueo pipefail
 
+SEED=$1
+
 cd labs/05
-python3 cags_classification.py --epochs=2 --epochs2=2 --threads=8
+python3 cags_classification.py --epochs=2 --epochs2=2 --seed=$SEED
 
 DATADIR="/storage/budejovice1/home/$(whoami)"
-cp cags_classification.txt $DATADIR
+cp -r submodel$SEED $DATADIR/cags/models/submodel$SEED
+#cp cags_classification.txt $DATADIR
