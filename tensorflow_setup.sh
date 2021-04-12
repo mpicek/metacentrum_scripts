@@ -3,10 +3,9 @@
 #set -ueo pipefail
 
 #PBS -N tensorflow_setup
-#PBS -l select=1:ncpus=10:ngpus=1:mem=16gb:scratch_local=15gb
+#PBS -l select=1:ncpus=6:ngpus=1:mem=16gb:scratch_local=10gb
 #PBS -q gpu
-#PBS -l walltime=6:00:00
-#PBS -m bae
+#PBS -l walltime=3:00:00
 
 DATADIR="/storage/budejovice1/home/$(whoami)"
 
