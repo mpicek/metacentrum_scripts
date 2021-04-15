@@ -7,7 +7,8 @@
 module add python/3.8.0-gcc-rab6t
 
 
-$PRIKAZ # TODO
+$CMD # TODO
+echo $CMD
 echo "prikaz byl spusten"
 
 clean_scratch
