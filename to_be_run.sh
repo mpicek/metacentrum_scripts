@@ -4,7 +4,7 @@ set -ueo pipefail
 
 SEED=$1
 
-cd labs/05
+cd labs/06
 python3 cags_classification.py --epochs=100 --epochs2=200 --seed=$SEED
 
 DATADIR="/storage/budejovice1/home/$(whoami)"

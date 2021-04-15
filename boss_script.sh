@@ -35,10 +35,20 @@ venv/bin/pip3 install tensorflow==2.3.1 tensorflow-addons==0.12.1
 
 # run Gaussian 03 with h2o.com as input and save the results into h2o.out file
 # if the calculation ends with an error, issue error message an exit
-./to_be_run.sh $SEED > to_be_run_out || { echo >&2 "Calculation ended up erroneously (with a code $?) !!"; exit 3; }
+
+
+
+cd labs/06
+$(PRIKAZ) # TODO
+# python3 3d_recognition.py --epochs=100 --epochs2=200 --seed=$SEED
+
+DATADIR="/storage/budejovice1/home/$(whoami)"
+# cp -r submodel$SEED $DATADIR/cags/models/submodel$SEED
+
+# ./to_be_run.sh $SEED > to_be_run_out || { echo >&2 "Calculation ended up erroneously (with a code $?) !!"; exit 3; }
 
 # move the output to user's DATADIR or exit in case of failure
-cp to_be_run_out $DATADIR/ || { echo >&2 "Result file(s) copying failed (with a code $?) !!"; exit 4; }
+# cp to_be_run_out $DATADIR/ || { echo >&2 "Result file(s) copying failed (with a code $?) !!"; exit 4; }
 
 # clean the SCRATCH directory
 clean_scratch
