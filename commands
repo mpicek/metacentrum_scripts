@@ -1,103 +1,103 @@
 #
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --cosine_alpha=0.02 --L2=0.0001 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,M-2,D-0.5"
 
 #
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --cosine_alpha=0.02 --L2=0.0001 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-3-1],M-2,D-0.3,CB-128-3-1,R-[CB-128-3-1],M-2,D-0.5"
 
 #
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --cosine_alpha=0.02 --L2=0.0001 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,M-2,D-0.5"
 
 # koblihova
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,M-2,D-0.5"
 
 # koblihova - vetsi dropouty
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.3,CB-64-3-1,CB-64-3-1,M-2,D-0.5,CB-128-3-1,CB-128-3-1,M-2,D-0.5"
 
 # vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-40-3-1,CB-40-3-1,M-2,D-0.1,CB-80-3-1,CB-80-3-1,M-2,D-0.3,CB-160-3-1,CB-160-3-1,M-2,D-0.5"
 
 # jeste vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-64-3-1,CB-64-3-1,M-2,D-0.1,CB-128-3-1,CB-128-3-1,M-2,D-0.3,CB-256-3-1,CB-256-3-1,M-2,D-0.5"
 
 # 4 stage
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,M-2,D-0.5,CB-256-3-1,CB-256-3-1,M-2,D-0.5"
 
 # ve stagi o jednu vice konvolucni sit
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5"
 
 # ve stagi o jednu vice konvolucni sit .. kernel=5
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-5-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-5-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-5-1,CB-128-3-1,M-2,D-0.5"
 
 # ------------------------------------------- REZIDUALNI -----------------------------------------
 # koblihova
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-3-1],M-2,D-0.3,CB-128-3-1,R-[CB-128-3-1],M-2,D-0.5"
 
 # koblihova - vetsi dropouty
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1],M-2,D-0.3,CB-64-3-1,R-[CB-64-3-1],M-2,D-0.5,CB-128-3-1,R-[CB-128-3-1],M-2,D-0.5"
 
 # vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-40-3-1,R-[CB-40-3-1],M-2,D-0.1,CB-80-3-1,R-[CB-80-3-1],M-2,D-0.3,CB-160-3-1,R-[CB-160-3-1],M-2,D-0.5"
 
 # jeste vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-64-3-1,R-[CB-64-3-1],M-2,D-0.1,CB-128-3-1,R-[CB-128-3-1],M-2,D-0.3,CB-256-3-1,R-[CB-256-3-1],M-2,D-0.5"
 
 # 4 stage
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-3-1],M-2,D-0.3,CB-128-3-1,R-[CB-128-3-1],M-2,D-0.5,     CB-256-3-1,R-[CB-256-3-1],M-2,D-0.5"
 
 # ve stagi o jednu vice konvolucni sit
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1,CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-3-1,CB-64-3-1],M-2,D-0.3,CB-128-3-1,R-[CB-128-3-1,CB-128-3-1],M-2,D-0.5"
 
 # ve stagi o jednu vice konvolucni sit .. kernel=5
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-5-1,CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-5-1,CB-64-3-1],M-2,D-0.3,CB-128-3-1,R-[CB-128-5-1,CB-128-3-1],M-2,D-0.5"
 
@@ -106,43 +106,43 @@ python3 3d_recognition.py
 # -------------------------------------------------- MENE STAGI
 # koblihova
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,M-2,D-0.3"
 
 # koblihova - vetsi dropouty
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.3,CB-64-3-1,CB-64-3-1,M-2,D-0.5"
 
 # vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-40-3-1,CB-40-3-1,M-2,D-0.1,CB-80-3-1,CB-80-3-1,M-2,D-0.3"
 
 # jeste vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-64-3-1,CB-64-3-1,M-2,D-0.1,CB-128-3-1,CB-128-3-1,M-2,D-0.3"
 
 # 4 stage
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,M-2,D-0.3"
 
 # ve stagi o jednu vice konvolucni sit
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3"
 
 # ve stagi o jednu vice konvolucni sit .. kernel=5
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,CB-32-5-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-5-1,CB-64-3-1,M-2,D-0.3"
 
@@ -151,37 +151,37 @@ python3 3d_recognition.py
 
 # koblihova
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-3-1],M-2,D-0.3"
 
 # koblihova - vetsi dropouty
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1],M-2,D-0.3,CB-64-3-1,R-[CB-64-3-1],M-2,D-0.5"
 
 # vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-40-3-1,R-[CB-40-3-1],M-2,D-0.1,CB-80-3-1,R-[CB-80-3-1],M-2,D-0.3"
 
 # jeste vice filtru
 python3 3d_recognition.py  
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-64-3-1,R-[CB-64-3-1],M-2,D-0.1,CB-128-3-1,R-[CB-128-3-1],M-2,D-0.3"
 
 # ve stagi o jednu vice konvolucni sit
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-3-1,CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-3-1,CB-64-3-1],M-2,D-0.3"
 
 # ve stagi o jednu vice konvolucni sit .. kernel=5
 python3 3d_recognition.py 
---batch_size=64 --epochs=200 
+--batch_size=64 --epochs=270 
 --decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
 --cnn="CB-32-3-1,R-[CB-32-5-1,CB-32-3-1],M-2,D-0.1,CB-64-3-1,R-[CB-64-5-1,CB-64-3-1],M-2,D-0.3"
 
