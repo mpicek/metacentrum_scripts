@@ -13,6 +13,9 @@ DATADIR="/storage/budejovice1/home/$(whoami)"
 # mkdir $SCRATCHDIR/tmp
 # export SINGULARITY_TMPDIR=$SCRATCHDIR/tmp
 
+module add python/3.8.0-gcc-rab6t
+module add cuda-10.1 cudnn-7.6.4-cuda10.1
+
 # ls /cvmfs/singularity.metacentrum.cz
 
 # test if scratch directory is set
