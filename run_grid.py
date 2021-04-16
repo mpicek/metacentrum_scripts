@@ -48,8 +48,7 @@ def main(args):
     for command in commands:
         seed = 42
         variables = "SEED=" + str(seed) + ",CMD=\"" + command + "\""
-        # print(variables)
-        list_files = subprocess.run(["qsub", "-v", variables, script])
+        list_files = subprocess.run(["qsub", "-v", variables, script[0]])
         # list_files = subprocess.run(["qsub", "-v", variables, "boss_script.sh"])
     # print("The exit code was: %d" % list_files.returncode)
     
