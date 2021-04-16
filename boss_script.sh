@@ -24,8 +24,7 @@ cp $DATADIR/metacentrum_scripts/to_be_run.sh $SCRATCHDIR || { echo >&2 "Error wh
 cp -r $DATADIR/npfl114-solutions/labs $SCRATCHDIR || { echo >&2 "Error while copying input file(s)!"; exit 2; }
 
 
-
-
+cd $SCRATCHDIR 
 # --nv for gpu
 # singularity shell --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF
 echo "cd $SCRATCHDIR" > my_new_script.sh
@@ -38,7 +37,7 @@ singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/T
 # "cd $SCRATCHDIR && echo \"$CMD\" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa"
 # move into scratch directory - zjistit, jestli opravdu se ty promenny sdili
 echo "$CMD"
-cd $SCRATCHDIR 
+cd labs/06
 cat out
 
 # python -m venv venv
@@ -51,7 +50,7 @@ cat out
 # run Gaussian 03 with h2o.com as input and save the results into h2o.out file
 # if the calculation ends with an error, issue error message an exit
 
-cd labs/06
+
 # $CMD
 # python3 3d_recognition.py --epochs=100 --epochs2=200 --seed=$SEED
 
