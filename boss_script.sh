@@ -31,6 +31,8 @@ cp -r $DATADIR/npfl114-solutions/labs $SCRATCHDIR || { echo >&2 "Error while cop
 singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF \
 "cd $SCRATCHDIR && echo "$CMD" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa"
 # move into scratch directory - zjistit, jestli opravdu se ty promenny sdili
+echo "$CMD" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa2
+echo "$CMD"
 cd $SCRATCHDIR 
 
 # python -m venv venv
