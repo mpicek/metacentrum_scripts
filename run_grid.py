@@ -11,6 +11,7 @@ import subprocess
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--filename", default="commands", type=str, help="File with commands.")
+parser.add_argument("--script", default=None, type=str, help="File with a qsub script.")
 
 def parse(filename):
 
@@ -41,13 +42,14 @@ def parse(filename):
 
 def main(args):
 
+    script = parse(args.script)
     commands = parse(args.filename)
 
     for command in commands:
         seed = 42
         variables = "SEED=" + str(seed) + ",CMD=\"" + command + "\""
         # print(variables)
-        list_files = subprocess.run(["qsub", "-v", variables, "test_skript.sh"])
+        list_files = subprocess.run(["qsub", "-v", variables, script])
         # list_files = subprocess.run(["qsub", "-v", variables, "boss_script.sh"])
     # print("The exit code was: %d" % list_files.returncode)
     
