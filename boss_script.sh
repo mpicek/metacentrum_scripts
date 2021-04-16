@@ -28,8 +28,11 @@ cp -r $DATADIR/npfl114-solutions/labs $SCRATCHDIR || { echo >&2 "Error while cop
 
 # --nv for gpu
 # singularity shell --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF
-singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF \
-"cd $SCRATCHDIR && echo "$CMD" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa"
+echo "cd $SCRATCHDIR" > my_new_script.sh
+echo "echo \"$CMD\" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa" >> my_new_script.sh
+singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF bash my_new_script.sh
+# singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF \
+# "cd $SCRATCHDIR && echo \"$CMD\" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa"
 # move into scratch directory - zjistit, jestli opravdu se ty promenny sdili
 echo "$CMD" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa2
 echo "$CMD"
