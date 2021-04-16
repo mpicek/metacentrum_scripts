@@ -46,7 +46,7 @@ def main(args):
 
     for command in commands:
         seed = 42
-        variables = "SEED=" + str(seed) + ",CMD=" + command
+        variables = "SEED=" + str(seed) + ",CMD=\"" + command + "\""
         print(variables)
         list_files = subprocess.run(["qsub", "-v", variables, args.script])
         # list_files = subprocess.run(["qsub", "-v", variables, "boss_script.sh"])
