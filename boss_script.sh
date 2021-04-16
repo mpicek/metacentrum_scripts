@@ -3,7 +3,7 @@
 #set -ueo pipefail
 
 #PBS -N tensorflow_setup
-#PBS -l select=1:ncpus=6:ngpus=1:mem=16gb:scratch_local=10gb
+#PBS -l select=1:ncpus=6:ngpus=1:mem=16gb:scratch_local=10gb:cuda_version=11.2:gpu_cap=cuda61
 #PBS -q gpu
 #PBS -l walltime=3:00:00
 
@@ -28,7 +28,8 @@ cp -r $DATADIR/npfl114-solutions/labs $SCRATCHDIR || { echo >&2 "Error while cop
 
 # --nv for gpu
 # singularity shell --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF
-singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF "cd $SCRATCHDIR && echo "ahoj" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa"
+singularity exec --bind $SCRATCHDIR --nv /cvmfs/singularity.metacentrum.cz/NGC/TensorFlow\:21.02-tf2-py3.SIF \
+"cd $SCRATCHDIR && echo "$CMD" > /storage/budejovice1/home/$(whoami)/zkouskaaaaaaaaaaaaa"
 # move into scratch directory - zjistit, jestli opravdu se ty promenny sdili
 cd $SCRATCHDIR 
 
