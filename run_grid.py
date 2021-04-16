@@ -42,13 +42,12 @@ def parse(filename):
 
 def main(args):
 
-    script = parse(args.script)
-    commands = parse(args.filename)
+    args = parse(args.filename)
 
     for command in commands:
         seed = 42
-        variables = "SEED=" + str(seed) + ",CMD=\"" + command + "\""
-        list_files = subprocess.run(["qsub", "-v", variables, script[0]])
+        variables = "SEED=" + str(seed) + ",CMD=\"" + args.command + "\""
+        list_files = subprocess.run(["qsub", "-v", variables, args.script])
         # list_files = subprocess.run(["qsub", "-v", variables, "boss_script.sh"])
     # print("The exit code was: %d" % list_files.returncode)
     
