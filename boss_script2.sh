@@ -9,11 +9,11 @@
 
 DATADIR="/storage/budejovice1/home/$(whoami)"
 
-chmod 700 $SCRATCHDIR
-mkdir $SCRATCHDIR/tmp
-export SINGULARITY_TMPDIR=$SCRATCHDIR/tmp
+# chmod 700 $SCRATCHDIR
+# mkdir $SCRATCHDIR/tmp
+# export SINGULARITY_TMPDIR=$SCRATCHDIR/tmp
 
-ls /cvmfs/singularity.metacentrum.cz
+# ls /cvmfs/singularity.metacentrum.cz
 
 # test if scratch directory is set
 # if scratch directory is not set, issue error message and exit
