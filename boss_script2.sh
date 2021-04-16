@@ -3,7 +3,7 @@
 #set -ueo pipefail
 
 #PBS -N tensorflow_setup
-#PBS -l select=1:ncpus=6:ngpus=1:mem=16gb:scratch_local=10gb
+#PBS -l select=1:ncpus=6:ngpus=1:mem=16gb:scratch_local=10gb:cuda_version=11.2:gpu_cap=cuda61
 #PBS -q gpu
 #PBS -l walltime=3:00:00
 
