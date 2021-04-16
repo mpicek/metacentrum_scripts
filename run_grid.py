@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Parses the commands from a file - ignores # and each command is separated by newline (at least one) or # (=comment)
+"""
 
 import sys
 import os
