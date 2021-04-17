@@ -1,0 +1,115 @@
+# jeste vice filtru
+python3 3d_recognition.py  
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-64-3-1,CB-64-3-1,M-2,D-0.1,CB-128-3-1,CB-128-3-1,M-2,D-0.3,CB-256-3-1,CB-256-3-1,M-2,D-0.5
+
+# jeste vice filtru ... jeste vice
+python3 3d_recognition.py  
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-80-3-1,CB-80-3-1,M-2,D-0.1,CB-160-3-1,CB-160-3-1,M-2,D-0.3,CB-320-3-1,CB-320-3-1,M-2,D-0.5
+
+# jeste vice filtru ... nizsi cosine alpha
+python3 3d_recognition.py  
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.005 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-64-3-1,CB-64-3-1,M-2,D-0.1,CB-128-3-1,CB-128-3-1,M-2,D-0.3,CB-256-3-1,CB-256-3-1,M-2,D-0.5
+
+# jeste vice filtru .. dropout vetsi
+python3 3d_recognition.py  
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,M-2,D-0.4,CB-256-3-1,CB-256-3-1,M-2,D-0.5
+
+# jeste vice filtru .. REZIDUALNI
+python3 3d_recognition.py  
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-64-3-1,R-SCB-64-3-1E,M-2,D-0.1,CB-128-3-1,R-SCB-128-3-1E,M-2,D-0.3,CB-256-3-1,R-SCB-256-3-1E,M-2,D-0.5
+
+
+
+
+
+
+# ve stagi o jednu vice konvolucni sit .. relu
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=relu --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. vetsi dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.3,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.4,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit ... versi L2
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.005 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. vice filtru + dropout vetsi
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-50-3-1,CB-50-3-1,CB-50-3-1,M-2,D-0.3,CB-100-3-1,CB-100-3-1,CB-100-3-1,M-2,D-0.4,CB-200-3-1,CB-200-3-1,CB-200-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. JESTE vice filtru + dropout vetsi
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.4,CB-256-3-1,CB-256-3-1,CB-256-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. vice dropout vrstev
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,CB-32-3-1,D-0.2,CB-32-3-1,M-2,D-0.2,CB-64-3-1,CB-64-3-1,D-0.4,CB-64-3-1,M-2,D-0.4,CB-128-3-1,CB-128-3-1,D-0.5,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. REZIDUALNI
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,R-SCB-32-3-1E,R-SCB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-3-1E,R-SCB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-3-1E,R-SCB-128-3-1E,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. REZIDUALNI a vetsi dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,R-SCB-32-3-1E,R-SCB-32-3-1E,M-2,D-0.3,CB-64-3-1,R-SCB-64-3-1E,R-SCB-64-3-1E,M-2,D-0.5,CB-128-3-1,R-SCB-128-3-1E,R-SCB-128-3-1E,M-2,D-0.5
+
+
+# ve stagi o jednu vice konvolucni sit ... REZIDUALNI po dvou vrstvach
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. REZIDUALNI a vetsi dropout a na vice mistech dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,R-SCB-32-3-1E,D-0.3,R-SCB-32-3-1E,M-2,D-0.3,CB-64-3-1,R-SCB-64-3-1E,D-0.5,R-SCB-64-3-1E,M-2,D-0.5,CB-128-3-1,R-SCB-128-3-1E,D-0.5,R-SCB-128-3-1E,M-2,D-0.5
+
+
+# ve stagi o DVE vice konvolucni site .. vetsi dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.3,CB-64-3-1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.4,CB-128-3-1,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o DVE vice konvolucni site .. vetsi dropout a na vice mistech
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-32-3-1,D-0.2,CB-32-3-1,D-0.2,CB-32-3-1,D-0.3,CB-32-3-1,M-2,D-0.3,CB-64-3-1,D-0.5,CB-64-3-1,D-0.5,CB-64-3-1,D-0.5,CB-64-3-1,M-2,D-0.5,CB-128-3-1,D-0.5,CB-128-3-1,D-0.5,CB-128-3-1,D-0.5,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o DVE vice konvolucni site .. vetsi dropout a na vice mistech a vice filtru
+python3 3d_recognition.py 
+--batch_size=64 --epochs=300 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten 
+--cnn=CB-64-3-1,D-0.2,CB-64-3-1,D-0.2,CB-64-3-1,D-0.3,CB-64-3-1,M-2,D-0.3,CB-128-3-1,D-0.5,CB-128-3-1,D-0.5,CB-128-3-1,D-0.5,CB-128-3-1,M-2,D-0.5,CB-256-3-1,D-0.5,CB-256-3-1,D-0.5,CB-256-3-1,D-0.5,CB-256-3-1,M-2,D-0.5
+
