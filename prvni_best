@@ -1,0 +1,153 @@
+# tensorflow_setup.o7287914 ... k 95
+# Namespace(L2=0.0001, activation='leaky', batch_size=64, cnn='cb-32-3-1,r-scb-32-3-1,cb-32-3-1e,m-2,d-0.1,cb-64-3-1,r-scb-64-3-1,cb-64-3-1e,m-2,d-0.3,cb-128-3-1,r-scb-128-3-1,cb-128-3-1e,m-2,d-0.5', cosine_alpha=0.02, decay=True, default=False, epochs=200, filters=32, filters_multiplier=2, flatten=True, gpu=False, kernel_size=3, leaky_alpha=0.1, learning_rate=0.001, logdir='ahoj', max_pool_size=2, modelnet=32, seed=42, threads=0)
+# # cb-32-3-1,r-scb-32-3-1,cb-32-3-1e,m-2,d-0.1,cb-64-3-1,r-scb-64-3-1,cb-64-3-1e,m-2,d-0.3,cb-128-3-1,r-scb-128-3-1,cb-128-3-1e,m-2,d-0.5
+# 5/5 [==============================] - 1s 136ms/step - loss: 0.1683 - accuracy: 0.9780
+# tensorflow_setup.o7287915 ... k 95
+# Namespace(L2=0.0001, activation='leaky', batch_size=64, cnn='cb-32-3-1,r-scb-32-5-1,cb-32-3-1e,m-2,d-0.1,cb-64-3-1,r-scb-64-5-1,cb-64-3-1e,m-2,d-0.3,cb-128-3-1,r-scb-128-5-1,cb-128-3-1e,m-2,d-0.5', cosine_alpha=0.02, decay=True, default=False, epochs=200, filters=32, filters_multiplier=2, flatten=True, gpu=False, kernel_size=3, leaky_alpha=0.1, learning_rate=0.001, logdir='ahoj', max_pool_size=2, modelnet=32, seed=42, threads=0)
+# cb-32-3-1,r-scb-32-5-1,cb-32-3-1e,m-2,d-0.1,cb-64-3-1,r-scb-64-5-1,cb-64-3-1e,m-2,d-0.3,cb-128-3-1,r-scb-128-5-1,cb-128-3-1e,m-2,d-0.5
+# 5/5 [==============================] - 1s 170ms/step - loss: 0.2082 - accuracy: 0.9744
+# 
+# cb-32-3-1,cb-32-3-1,cb-32-3-1,m-2,d-0.1,cb-64-3-1,cb-64-3-1,cb-64-3-1,m-2,d-0.3,cb-128-3-1,cb-128-3-1,cb-128-3-1,m-2,d-0.5
+# 5/5 [==============================] - 0s 81ms/step - loss: 0.3379 - accuracy: 0.9707
+# 
+# cb-64-3-1,cb-64-3-1,m-2,d-0.1,cb-128-3-1,cb-128-3-1,m-2,d-0.3,cb-256-3-1,cb-256-3-1,m-2,d-0.5
+# 5/5 [==============================] - 1s 158ms/step - loss: 0.2977 - accuracy: 0.9707
+
+
+# .. konvergovalo k 96
+# tensorflow_setup.o7286993
+# Namespace(L2=0.0001, activation='leaky', batch_size=64, cnn='cb-32-3-1,cb-32-3-1,m-2,d-0.1,cb-64-3-1,cb-64-3-1,m-2,d-0.3,cb-128-3-1,cb-128-3-1,m-2,d-0.5,cb-256-3-1,cb-256-3-1,m-2,d-0.5', cosine_alpha=0.02, decay=True, default=False, epochs=280, filters=32, filters_multiplier=2, flatten=False, gpu=False, kernel_size=3, leaky_alpha=0.1, learning_rate=0.001, logdir='ahoj', max_pool_size=2, modelnet=32, seed=42, threads=0)
+# cb-32-3-1,cb-32-3-1,m-2,d-0.1,cb-64-3-1,cb-64-3-1,m-2,d-0.3,cb-128-3-1,cb-128-3-1,m-2,d-0.5,cb-256-3-1,cb-256-3-1,m-2,d-0.5
+# 5/5 [==============================] - 0s 52ms/step - loss: 0.2467 - accuracy: 0.9707
+
+# PRVNI DVE MAJ ODSTRANENY REZIDUALKY!
+# ve stagi o jednu vice konvolucni sit ... puvodne 9780
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit .. kernel=5 ... puvodne 9744
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,CB-32-5-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-5-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-5-1,CB-128-3-1,M-2,D-0.5
+
+# ve stagi o jednu vice konvolucni sit ... puvodne 9707
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,CB-32-3-1,CB-32-3-1,M-2,D-0.1,CB-64-3-1,CB-64-3-1,CB-64-3-1,M-2,D-0.3,CB-128-3-1,CB-128-3-1,CB-128-3-1,M-2,D-0.5
+
+# jeste vice filtru  ... puvodne 9707
+python3 3d_recognition.py  
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-64-3-1,CB-64-3-1,M-2,D-0.1,CB-128-3-1,CB-128-3-1,M-2,D-0.3,CB-256-3-1,CB-256-3-1,M-2,D-0.5
+
+# ---------------------- PRVNI VARIACE
+
+# zvysenej dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.3,CB-64-3-1,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.5,CB-128-3-1,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysena L2 (10x)
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysena L2 a zvysenej dropout + vice epoch
+python3 3d_recognition.py 
+--batch_size=64 --epochs=250 
+--decay --learning_rate=0.001 --L2=0.001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.4,CB-64-3-1,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.5,CB-128-3-1,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# pridanej dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=250 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,D-0.1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.2,CB-64-3-1,D-0.2,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,D-0.3,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysenej batch_size
+python3 3d_recognition.py 
+--batch_size=128 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysenej pocet kanalu a vice dropoutu
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-45-3-1,D-0.1,R-SCB-45-3-1,CB-45-3-1E,M-2,D-0.2,CB-90-3-1,D-0.2,R-SCB-90-3-1,CB-90-3-1E,M-2,D-0.3,CB-180-3-1,D-0.3,R-SCB-180-3-1,CB-180-3-1E,M-2,D-0.5
+
+# puvodni + global pooling
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --gpu 
+--cnn=CB-32-3-1,R-SCB-32-3-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-3-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-3-1,CB-128-3-1E,M-2,D-0.5
+
+# puvodni + conv misto M + vice dropoutu
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,D-0.1,R-SCB-32-3-1,CB-32-3-1E,D-0.2,CB-64-3-2,D-0.2,CB-64-3-1,D-0.2,R-SCB-64-3-1,CB-64-3-1E,D-0.2,CB-128-3-2,D-0.3,CB-128-3-1,D-0.3,R-SCB-128-3-1,CB-128-3-1E,D-0.4,CB-256-3-2,D-0.5
+
+
+# ------------------------ DRUHA VARIACE
+
+# zvysit dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.3,CB-64-3-1,R-SCB-64-5-1,CB-64-3-1E,M-2,D-0.5,CB-128-3-1,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysena L2 (10x)
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-5-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysena L2 a zvysenej dropout + vice epoch
+python3 3d_recognition.py 
+--batch_size=64 --epochs=250 
+--decay --learning_rate=0.001 --L2=0.001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.3,CB-64-3-1,R-SCB-64-5-1,CB-64-3-1E,M-2,D-0.5,CB-128-3-1,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# pridanej dropout
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,D-0.1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.2,CB-64-3-1,R-SCB-64-5-1,D-0.3,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,D-0.3,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# zvysenej batch_size
+python3 3d_recognition.py 
+--batch_size=128 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-5-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# vice kanalu a vice dropoutu
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-45-3-1,D-0.1,R-SCB-45-5-1,CB-45-3-1E,M-2,D-0.2,CB-90-3-1,R-SCB-90-5-1,D-0.3,CB-90-3-1E,M-2,D-0.3,CB-180-3-1,D-0.3,R-SCB-180-5-1,CB-180-3-1E,M-2,D-0.5
+
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-5-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# puvodni + global pooling
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --gpu 
+--cnn=CB-32-3-1,R-SCB-32-5-1,CB-32-3-1E,M-2,D-0.1,CB-64-3-1,R-SCB-64-5-1,CB-64-3-1E,M-2,D-0.3,CB-128-3-1,R-SCB-128-5-1,CB-128-3-1E,M-2,D-0.5
+
+# nahrazene Maxpooly konvoluci
+python3 3d_recognition.py 
+--batch_size=64 --epochs=200 
+--decay --learning_rate=0.001 --L2=0.0001 --cosine_alpha=0.02 --activation=leaky --leaky_alpha=0.1 --flatten --gpu 
+--cnn=CB-32-3-1,D-0.1,R-SCB-32-5-1,CB-32-3-1E,D-0.2,CB-64-3-2,D-0.2,CB-64-3-1,R-SCB-64-5-1,D-0.3,CB-64-3-1E,CB-128-3-2,D-0.3,CB-128-3-1,D-0.3,R-SCB-128-5-1,CB-128-3-1E,D-0.4,CB-256-3-2,D-0.5
+
