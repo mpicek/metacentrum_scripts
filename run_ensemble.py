@@ -44,7 +44,7 @@ def parse(filename):
 def main(args):
 
     command = parse(args.command_file) # there will be just one command!
-
+    command = command[0]
     for i in range(args.models):
         seed = i + 1 # I don't know wheter seed can be 0
         command_with_seed = command + " --seed=" + str(seed)
