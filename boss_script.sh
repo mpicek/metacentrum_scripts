@@ -40,6 +40,7 @@ echo "$CMD"
 cd labs/06
 cat out
 
+
 # python -m venv venv
 # . ./venv/bin/activate
 
@@ -55,7 +56,7 @@ cat out
 # python3 3d_recognition.py --epochs=100 --epochs2=200 --seed=$SEED
 
 
-# cp -r submodel$SEED $DATADIR/cags/models/submodel$SEED
+cp -r submodel$SEED $DATADIR/3d/models/submodel$SEED
 
 # ./to_be_run.sh $SEED > to_be_run_out || { echo >&2 "Calculation ended up erroneously (with a code $?) !!"; exit 3; }
 
