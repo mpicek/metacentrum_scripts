@@ -8,7 +8,7 @@
 #PBS -N qsub_script
 #PBS -l select=1:ncpus=12:ngpus=1:mem=16gb:scratch_local=15gb:cuda_version=11.2:gpu_cap=cuda61
 #PBS -q gpu
-#PBS -l walltime=23:00:00
+#PBS -l walltime=6:00:00
 
 # Directory I use as a main storage
 DATADIR="/storage/budejovice1/home/$(whoami)"
@@ -30,7 +30,6 @@ cp -r $DATADIR/$REPOSITORY $SCRATCHDIR || { echo >&2 "Error while copying input 
 
 cd $SCRATCHDIR 
 
-#TODO: TOO SPECIFIC
 echo "cd $SCRATCHDIR" > my_new_script.sh
 echo "cd $PROGRAM_PATH" > my_new_script.sh
 echo "$CMD > out" >> my_new_script.sh

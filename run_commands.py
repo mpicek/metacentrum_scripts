@@ -15,7 +15,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--command_file", default="commands", type=str, help="File with commands to be run.")
 parser.add_argument("--script", default=None, type=str, help="File with a qsub script.")
 parser.add_argument("--repository", default="npfl114-solutions/labs", type=str, help="Repository with code in DATADIR.")
-parser.add_argument("--program_path", default="npfl114-solutions/labs/08", type=str, help="Path to the executed program from DATADIR.")
+parser.add_argument("--program_path", default="labs/08", type=str, help="Path to the executed program from DATADIR.")
 parser.add_argument("--ensemble", action='store_true', help="Create ensemble.")
 parser.add_argument("--models", default=10, type=int, help="Number of models in an ensemble.")
 
