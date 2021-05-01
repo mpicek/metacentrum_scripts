@@ -1,0 +1,23 @@
+# BASIC
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.3 --word_masking=0.5 --rnn=R-SB-128-0,B-128-0E --repeated=2
+
+# dalsi vrstva
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.3 --word_masking=0.5 --rnn=R-SB-128-0,B-128-0E,B-128-0 --repeated=1
+
+# BASIC + dropout inside
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.3 --word_masking=0.5 --rnn=R-SB-128-0.1,B-128-0.1E --repeated=2
+
+# BASIC + dropout inside + dropout input
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.5 --word_masking=0.5 --rnn=R-SB-128-0.1,B-128-0.1E --repeated=2
+
+# BASIC small dropout + small word_masking
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.2 --word_masking=0.2 --rnn=R-SB-128-0,B-128-0E --repeated=2
+
+# no residual
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.3 --word_masking=0.5 --rnn=B-128-0,B-128-0 --repeated=2
+
+# one in residual
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.3 --word_masking=0.5 --rnn=R-SB-128-0E --repeated=4
+
+# more repeated
+python3 competition_final.py --batch_size=128 --epochs=2 --cle_dim=64 --dropout_input=0.3 --word_masking=0.5 --rnn=R-SB-128-0,B-128-0E --repeated=4
