@@ -23,11 +23,11 @@ def main(args):
 
     # WARNING - this grows exponentially! All combinations are tried!
     params = {
-        "batch_size" : [50, 100, 150, 200],
-        "epochs" : [30],
+        "batch_size" : [20, 50, 100],
+        "epochs" : [60],
         "cle_dim" : [64],
         "dropout_input" : [0.0, 0.1, 0.3, 0.5],
-        "word_masking" : [0.1, 0.2, 0.3, 0.5],
+        "word_masking" : [0.3, 0.5, 0.6],
         "repeated" : [1, 2, 3],
         "rnn" : ["R-SB-128-0,B-128-0E", "R-SB-128-0,B-128-0E,B-128-0", "R-SB-128-0.1,B-128-0.1E", "B-128-0,B-128-0", "R-SB-128-0E"]
     }
@@ -65,7 +65,7 @@ def main(args):
         print(variables)
         print(command)
 
-        # list_files = subprocess.run(["qsub", "-v", variables, args.script])
+        list_files = subprocess.run(["qsub", "-v", variables, args.script])
 
 if __name__ == "__main__":
     args = parser.parse_args()
