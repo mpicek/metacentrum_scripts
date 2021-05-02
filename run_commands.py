@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-"""
-Parses the commands from a file:
-    - ignores # (comments) 
-    - each command has to be separated either by a newline (at least one) 
-      or # (a comment)
-"""
 
 import sys
 import os
@@ -21,8 +15,11 @@ parser.add_argument("--models", default=10, type=int, help="Number of models in 
 
 def parse(filename):
     """
-    Parses the file with commands.
-
+    Parses the commands from a file:
+        - ignores # (=comments) 
+        - each command has to be separated either by a newline (at least one) 
+        or # (a comment)
+    
     Returns:
         List of commands to be run.
     """
@@ -59,7 +56,7 @@ def main(args):
     commands = parse(args.command_file)
 
     if args.ensemble:
-        # if creating the ensemble, we use just the first command
+        # if creating an ensemble, we use just the first command
         command = commands[0]
 
         for i in range(args.models):

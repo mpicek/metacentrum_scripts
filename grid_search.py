@@ -65,7 +65,7 @@ def main(args):
         print(variables)
         print(command)
 
-        list_files = subprocess.run(["qsub", "-v", variables, args.script])
+        # list_files = subprocess.run(["qsub", "-v", variables, args.script])
 
 if __name__ == "__main__":
     args = parser.parse_args()
