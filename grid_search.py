@@ -15,7 +15,7 @@ parser.add_argument("--command_file", default="commands", type=str, help="File w
 parser.add_argument("--script", default=None, type=str, help="File with a qsub script.")
 parser.add_argument("--repository", default="npfl114-solutions/labs", type=str, help="Repository with code in DATADIR.")
 parser.add_argument("--program_path", default="labs/08", type=str, help="Path to the executed program from DATADIR.")
-parser.add_argument("--command_prefix", default="python3 program.py", type=str, help="Beginning of the command executed.")
+parser.add_argument("--command_prefix", default="python3 competition_final.py", type=str, help="Beginning of the command executed.")
 
 def main(args):
     if args.script == None:
@@ -36,7 +36,7 @@ def main(args):
     keys, values = zip(*params.items())
     permutations_dicts = [dict(zip(keys, v)) for v in itertools.product(*values)]
 
-    print("There will be " + str(len(permutations_dicts)) + "instances.")
+    print("There will be " + str(len(permutations_dicts)) + " instances.")
     print("Do you wish to proceed? [y/n]")
 
     answer = None
@@ -53,19 +53,19 @@ def main(args):
         for key, val in param_dict.items():
             command += " --" + key + "=" + str(val)
 
-            seed = 42
-            command_with_seed = command + " --seed=" + str(seed)
-            seed_var = "SEED=" + str(seed)
-            cmd_var = ",CMD=\"" + command_with_seed + "\""
-            program_path_var = ",PROGRAM_PATH=\"" + args.program_path + "\""
-            ensemble_var = ",ENSEMBLE=\"" + str(0) + "\""
-            repository_var = ",REPOSITORY=\"" + args.repository + "\""
-            variables = seed_var + cmd_var + ensemble_var + repository_var + program_path_var
-            print("Program number: " + str(i + 1))
-            print(variables)
-            print(command)
+        seed = 42
+        command_with_seed = command + " --seed=" + str(seed)
+        seed_var = "SEED=" + str(seed)
+        cmd_var = ",CMD=\"" + command_with_seed + "\""
+        program_path_var = ",PROGRAM_PATH=\"" + args.program_path + "\""
+        ensemble_var = ",ENSEMBLE=\"" + str(0) + "\""
+        repository_var = ",REPOSITORY=\"" + args.repository + "\""
+        variables = seed_var + cmd_var + ensemble_var + repository_var + program_path_var
+        print("Program number: " + str(i + 1))
+        print(variables)
+        print(command)
 
-            list_files = subprocess.run(["qsub", "-v", variables, args.script])
+        list_files = subprocess.run(["qsub", "-v", variables, args.script])
 
 if __name__ == "__main__":
     args = parser.parse_args()
