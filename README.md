@@ -1,30 +1,29 @@
 # Metacentrum Scripts
 
-**This is a repository containing scripts to make your work with Metacentrum
-servers easier. Metacentrum is a grid of powerful computers provided by CESNET to 
-the czech academy community - students, researchers, teachers,.. - for free**.
+This is a repository containing scripts to make your work with Metacentrum
+servers easier. Metacentrum is a grid of powerful computers provided by CESNET to the Czech academy community - students, researchers, teachers,.. - for free.
 
 **There are [rules](https://wiki.metacentrum.cz/wiki/Usage_rules)
 you should definitely read**, but I want to point out
-one of the most important one (for me). If you use Metacentrum, please
-use the [acknowledgement formula](https://wiki.metacentrum.cz/wiki/Usage_rules/Acknowledgement).
+one of the most important ones (for me). If you use Metacentrum, please
+use the [acknowledgment formula](https://wiki.metacentrum.cz/wiki/Usage_rules/Acknowledgement).
 
-**Before you begin, I also recommend to read this [Beginners guide](https://wiki.metacentrum.cz/wiki/Beginners_guide#Track_your_job).**
+**Before you begin, I also recommend reading this [Beginners guide](https://wiki.metacentrum.cz/wiki/Beginners_guide#Track_your_job).**
 It is very simply put.
 
 I also provide links to the Metacentrum Wiki - all in English. Right now I want to point out that
-**most of the wiki pages are also in Czech language**. Take advantage of this fact when
+**most of the wiki pages are also in the Czech language**. Take advantage of this fact when
 Czech is more convenient for you :)
 
 # Registration
 
-**In order to use Metacentrum you need to be registerd. You can do so [here](https://metavo.metacentrum.cz/en/application/index.html).**
+**In order to use Metacentrum you need to be registered. You can do so [here](https://metavo.metacentrum.cz/en/application/index.html).**
 
 **If you also want to use GPU, you have to [agree to the cudnn license](https://wiki.metacentrum.cz/w/index.php?title=CuDNN_library&setlang=en).**
 
 # Usage of The Scripts
 
-Connect via SSH to some of the Frontend server:
+Connect via SSH to some of the Frontend servers:
 ```bash
 ssh user_name@tarkil.grid.cesnet.cz
 ```
@@ -36,48 +35,48 @@ will be used as our storage directory as it has 102Gb quota:
 cd /storage/budejovice1/home/user_name
 ```
 
-**Create a file similar to `commands_example`. Each of the commands will
-be run in separate jobs** - it is good for hyperparameter tuning as you
+**Create a file similar to `commands_example`. Each of the commands from this file will
+be run as a separate job** - it is good for hyperparameter tuning as you
 specify them in the command parameters. Writing the commands file is simple:
  - you can write comments with `# comment`
  - each command has to be separated from another one by either a comment or
    one empty line
- - if you are creating an ensemble, only the first command will be run (more info in "Creating an Ensemble")
+ - if you are creating an ensemble, only the first command will be run (more info in the "Creating an Ensemble" section)
 
-Very short example that runs 3 jobs:
+A very short example that runs 3 jobs:
 ```
 # first command
 python3 my_program.py --some_argument=1
 
-# my second command, that will be run in another job
+# my second command, which will be run in another job
 python3 my_program.py --some_argument=2
 
 python3 my_program.py
 ```
 
 **Do not specify the `--seed` argument if you have one as it is used for ensembling.
-Your programs also have to get the `--seed` argument. This will be changed soon
-as it is not very flexible.**
+Your programs also need the ability to obtain the `--seed` argument from the command line.
+This will be changed soon as it is not very flexible.**
 
-**Then you create a bash script that will setup the VM you aquire from Metacentrum.
+**Then you create a bash script that will set up the VM you acquire from Metacentrum.
 As an example, there is `qsub_script.sh` which setups Tensorflow 2.4.1 environment
 with GPU.** It is recommended to use this script - just
 edit it the way you want. Why is it recommended to use this script?
-There are many ways you can setup Tensorflow on Metacentrum - with the help of pip, 
+There are many ways you can set up Tensorflow on Metacentrum - with the help of pip, 
 there are also modules
 provided by Metacentrum, or you can just compile the Tensorflow
 on your own. But what's the problem? You will almost certainly encounter
 problems with improperly installed CUDA (or just too old version installed on Metacentrum machines).
 However, the most convenient and recommended way is to use NGC containers
-that provide TF and CUDA installed and ready to use. 
+that provide TF and CUDA installed and are ready to use. 
 This approach is maintained by Metacentrum and is also recommended by them. 
 You can find out more [here](https://wiki.metacentrum.cz/wiki/NVidia_deep_learning_frameworks).
 
 
-**At the beginning of the file you have to specify
+**At the beginning of the file, you have to specify
 the resources (lines beginning with PBS)**. It is very straightforward, you
 will probably have to alter just some numbers.
-You can find more informations [here](https://wiki.metacentrum.cz/wiki/Beginners_guide).
+You can find more information [here](https://wiki.metacentrum.cz/wiki/Beginners_guide).
 
 
 Both of these files will be passed to the `run_commands.py` script like this:
@@ -109,8 +108,7 @@ You can also monitor your jobs [here](http://metavo.metacentrum.cz/pbsmon2/perso
 
 ## Creating an Ensemble
 
-If you want to create an ensamble of one specific model, just 
-create a command file where will be just the one command to be run. If there are more,
+If you want to create an ensemble of one specific model, just create a command file where will be just the one command to be run. If there are more,
 only the first one will be run.
 
 Then execute:
@@ -119,13 +117,13 @@ Then execute:
 ./run_commands.py --command_file=commands_example --script=qsub_script.sh --repository=npfl114-solutions/labs --program_path=labs/08 --models=20
 ```
 where all the arguments are described above except for one:
- - `--modles=20` - how many models will be created
+ - `--modles=20` - number of models that will be created
 
 Your model should create folder `submodel<SEED>` where `<SEED>` is the seed it
-obtains since it is used as an identificator of the model in an ensemble (so for example `submodel42`).
+obtains since it is used as an identification of the model in an ensemble (so for example `submodel42`).
 It must be created by your program in the folder where the program is run. And what should
 the folder contain? It is on you, but the purpose of this folder is to store
-the trained model in it. The folder is then copied to your storage folder (`/storage/budejovice1/home/user_name` in this tutorial
+the trained model in it. The folder is then copied to your storage folder (`/storage/budejovice1/home/user_name` in this tutorial)
 in folder `models` - just to be later used for ensembling.
 
 Now you can create another job that will connect all the ensembles together.
@@ -133,5 +131,10 @@ This tutorial will be soon expanded so that it covers also this step.
 
 ## Grid Search
 
-Please, don't use the `grid_search.py` script. It is still not ready and it can
-do harm to either you or to the Metacentrum.
+In the `grid_search.py` script, you have to create a dictionary `params`.
+Keys in the dictionary are the names of the arguments to be passed to your program. 
+Each key has its value - the value is of type list. In the list, there are
+all possibilities that will be passed as an argument value.
+
+**Warning** - all the possibilities are tried. Be careful as the number grows
+very quickly.
