@@ -65,7 +65,7 @@ def main(args):
             seed_var = "SEED=" + str(seed)
             cmd_var = ",CMD=\"" + command_with_seed + "\""
             program_path_var = ",PROGRAM_PATH=\"" + args.program_path + "\""
-            ensemble_var = ",ENSEMBLE=\"" + str(0) + "\""
+            ensemble_var = ",ENSEMBLE=\"" + str(1) + "\""
             repository_var = ",REPOSITORY=\"" + args.repository + "\""
             variables = seed_var + cmd_var + ensemble_var + repository_var + program_path_var
             print(variables)

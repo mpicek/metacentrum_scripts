@@ -9,9 +9,9 @@
 
 # DEFINE RESOURCES:
 #PBS -N qsub_script
-#PBS -l select=1:ncpus=8:ngpus=1:mem=16gb:scratch_local=15gb:cuda_version=11.2:gpu_cap=cuda71
+#PBS -l select=1:ncpus=4:ngpus=1:mem=20gb:scratch_local=15gb:cuda_version=11.2:gpu_cap=cuda70
 #PBS -q gpu
-#PBS -l walltime=6:00:00
+#PBS -l walltime=8:00:00
 
 # Directory I use as a main storage
 DATADIR="/storage/budejovice1/home/$(whoami)"
