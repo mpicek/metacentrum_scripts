@@ -1,24 +1,17 @@
 #!/usr/bin/env python3
 """
-Runs gridsearch.
+Carries out grid search based on predefined dictionary of parameters.
 """
 
 import sys
 import os
 import argparse
 import subprocess
-
 import itertools
 
-parser = argparse.ArgumentParser()
-parser.add_argument("--command_file", default="commands", type=str, help="File with commands to be run.")
-parser.add_argument("--script", default=None, type=str, help="File with a qsub script.")
-parser.add_argument("--repository", default="npfl114-solutions/labs", type=str, help="Repository with code in DATADIR.")
-parser.add_argument("--program_path", default="labs/08", type=str, help="Path to the executed program from DATADIR.")
-parser.add_argument("--command_prefix", default="python3 competition_final.py", type=str, help="Beginning of the command executed.")
 
 def main(args):
-    if args.script == None:
+    if args.script is None:
         raise ValueError("No script defined.")
 
     # WARNING - this grows exponentially! All combinations are tried!
@@ -33,7 +26,7 @@ def main(args):
     keys, values = zip(*params.items())
     permutations_dicts = [dict(zip(keys, v)) for v in itertools.product(*values)]
 
-    print("There will be " + str(len(permutations_dicts)) + " instances.")
+    print(f"There will be {str(len(permutations_dicts))} instances.")
     print("Do you wish to proceed? [y/n]")
 
     answer = None
@@ -43,7 +36,7 @@ def main(args):
         answer = input()
 
     if answer == 'n':
-        exit(0)
+        sys.exit(0)
 
     for i, param_dict in enumerate(permutations_dicts):
         command = args.command_prefix
@@ -51,19 +44,26 @@ def main(args):
             command += " --" + key + "=" + str(val)
 
         seed = 42
-        command_with_seed = command + " --seed=" + str(seed)
-        seed_var = "SEED=" + str(seed)
-        cmd_var = ",CMD=\"" + command_with_seed + "\""
-        program_path_var = ",PROGRAM_PATH=\"" + args.program_path + "\""
-        ensemble_var = ",ENSEMBLE=\"" + str(0) + "\""
-        repository_var = ",REPOSITORY=\"" + args.repository + "\""
+        command_with_seed = command + ' --seed=' + str(seed)
+        seed_var = 'SEED=' + str(seed)
+        cmd_var = ',CMD="' + command_with_seed + '"'
+        program_path_var = ',PROGRAM_PATH="' + args.program_path + '"'
+        ensemble_var = ',ENSEMBLE="' + str(0) + '"'
+        repository_var = ',REPOSITORY="' + args.repository + '"'
         variables = seed_var + cmd_var + ensemble_var + repository_var + program_path_var
-        print("Program number: " + str(i + 1))
+        print(f"Program number: {str(i + 1)}")
         print(variables)
         print(command)
 
-        list_files = subprocess.run(["qsub", "-v", variables, args.script])
+        list_files = subprocess.run(['qsub', '-v', variables, args.script])
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--command_file", default="commands", type=str, help="File with commands to be run.")
+    parser.add_argument("--script", default=None, type=str, help="File with a qsub script.")
+    parser.add_argument("--repository", default="npfl114-solutions/labs", type=str, help="Repository with code in DATADIR.")
+    parser.add_argument("--program_path", default="labs/08", type=str, help="Path to the executed program from DATADIR.")
+    parser.add_argument("--command_prefix", default="python3 competition_final.py", type=str, help="Beginning of the command executed.")
+
     args = parser.parse_args()
     main(args)
